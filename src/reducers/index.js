@@ -7,7 +7,8 @@ const initialState = {
   showInfoModal: false
 }
 
-export const hotColdReducer = (state=initialState, action) => {
+export const hotColdReducer = (state, action) => {
+  state = state || initialState;
   if(action.type === actions.NEW_GAME){
     return Object.assign({}, state, {
       guesses: [],
@@ -23,7 +24,7 @@ export const hotColdReducer = (state=initialState, action) => {
         })
     }
 
-    const difference = Math.abs(guess - this.state.correctAnswer);
+    const difference = Math.abs(guess - state.correctAnswer);
 
     let feedback;
     if (difference >= 50) {
@@ -45,6 +46,7 @@ export const hotColdReducer = (state=initialState, action) => {
       guesses: [...state.guesses, guess],
       feedback: feedback
     })
+    return state;
   }
   else if(action.type === actions.TOGGLE_INFO){
     return Object.assign({}, state, {
