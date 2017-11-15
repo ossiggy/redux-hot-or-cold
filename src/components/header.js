@@ -17,7 +17,7 @@ export class Header extends React.Component  {
         return (
             <header>
                 <TopNav onInfo={() => this.props.dispatch(toggleInfo())}
-                    onNewGame={this.props.dispatch(newGame())} />
+                    onNewGame={() => this.props.dispatch(newGame())} />
                 {infoModal}
                 <h1>HOT or COLD</h1>
             </header>
