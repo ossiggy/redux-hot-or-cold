@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {newGame} from '../actions';
-
 import './top-nav.css';
 
 export class TopNav extends React.Component {
